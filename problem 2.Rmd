@@ -24,7 +24,7 @@ ny_noaa = ny_noaa |>
 ### Plotly scatterplot
 ```{r}
 ny_noaa |>
-  mutate(text_label = paste("Max Temp: ", tmax, "°F", "\nMin Temp: ", tmin, "°F")) |>
+  mutate(text_label = paste("Max Temp: ", tmax, "10°C", "\nMin Temp: ", tmin, "10°C")) |>
   plot_ly(
     x = ~tmin,
     y = ~tmax,
@@ -35,14 +35,14 @@ ny_noaa |>
       opacity = 0.6,
       color = ~tmax,      
       colorscale = "Viridis", 
-      colorbar = list(title = "Max Temp (°F)")
+      colorbar = list(title = "Max Temp (10°C)")
     ),
     text = ~text_label  
   ) |>
   layout(
     title = "Max Temperature vs Min Temperature",
-    xaxis = list(title = "Min Temperature (°F)"),
-    yaxis = list(title = "Max Temperature (°F)")
+    xaxis = list(title = "Min Temperature (10°C)"),
+    yaxis = list(title = "Max Temperature (10°C)")
   )
 ```
 
@@ -59,7 +59,7 @@ ny_noaa |>
   plot_ly(x = ~prcp_group, y = ~n, type = "bar", marker = list(color = ~color))|>
   layout(
     title = "prcp distribution",
-    xaxis = list(title = "prcp group (mm)"),
+    xaxis = list(title = "prcp group (1/10mm)"),
     yaxis = list(title = "Frequency")
   )
 ```
@@ -85,7 +85,7 @@ plot_ly(
   layout(
     title = "Max Temperature Distribution in Each Month",
     xaxis = list(title = "Month"),
-    yaxis = list(title = "Highest Temperature (°F)")
+    yaxis = list(title = "Highest Temperature (10°C)")
   )
 ```
 

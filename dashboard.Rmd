@@ -33,7 +33,7 @@ Column {data-width=650}
 
 ```{r}
 ny_noaa |>
-  mutate(text_label = paste("Max Temp: ", tmax, "10°C", "\nMin Temp: ", tmin, "°F")) |>
+  mutate(text_label = paste("Max Temp: ", tmax, "10°C", "\nMin Temp: ", tmin, "10°C")) |>
   plot_ly(
     x = ~tmin,
     y = ~tmax,
