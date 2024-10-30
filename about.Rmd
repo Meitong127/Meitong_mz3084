@@ -1,0 +1,12 @@
+---
+title: "About"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    css: styles.css
+---
+### Information About Me
+Welcome to my personal website! Here is a brief introduction of me, you can click the link below to view my resume.
+
+[View my resume](./Resume.pdf)

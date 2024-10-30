@@ -1,0 +1,94 @@
+---
+title: "problem 2"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+```{r}
+library(tidyverse)
+library(p8105.datasets)
+
+library(viridis)
+library(flexdashboard)
+library(plotly)
+```
+
+```{r}
+data("ny_noaa")
+ny_noaa = ny_noaa |>
+  filter(!is.na(tmax), !is.na(tmin), !is.na(prcp)) |> # remove NA
+  sample_n(1000) # Random pick 1000 data to reduce the size of dataset
+```
+
+### Plotly scatterplot
+```{r}
+ny_noaa |>
+  mutate(text_label = paste("Max Temp: ", tmax, "°F", "\nMin Temp: ", tmin, "°F")) |>
+  plot_ly(
+    x = ~tmin,
+    y = ~tmax,
+    type = "scatter",
+    mode = "markers",
+    marker = list(
+      size = 5,
+      opacity = 0.6,
+      color = ~tmax,      
+      colorscale = "Viridis", 
+      colorbar = list(title = "Max Temp (°F)")
+    ),
+    text = ~text_label  
+  ) |>
+  layout(
+    title = "Max Temperature vs Min Temperature",
+    xaxis = list(title = "Min Temperature (°F)"),
+    yaxis = list(title = "Max Temperature (°F)")
+  )
+```
+
+### Plotly barchart
+
+
+```{r}
+ny_noaa |>
+  filter(!is.na(prcp)) |>
+  mutate(prcp_group = cut(prcp, breaks = seq(0, max(prcp, na.rm = TRUE), by = 10), right = FALSE)) |>
+  count(prcp_group) |>
+  filter(!is.na(prcp_group)) |>  # remove NA group
+  mutate(color = viridis(n())) |>
+  plot_ly(x = ~prcp_group, y = ~n, type = "bar", marker = list(color = ~color))|>
+  layout(
+    title = "prcp distribution",
+    xaxis = list(title = "prcp group (mm)"),
+    yaxis = list(title = "Frequency")
+  )
+```
+### Plotly boxplot
+
+```{r}
+ny_noaa = ny_noaa |>
+  mutate(
+    tmax = as.numeric(tmax),
+    month = month(date, label = TRUE)
+  )
+
+plot_ly(
+  data = ny_noaa,
+  x = ~month,
+  y = ~tmax,
+  type = "box",
+  marker = list(
+    color = ~as.numeric(month),  
+    colorscale = "Viridis"       
+  )
+) |>
+  layout(
+    title = "Max Temperature Distribution in Each Month",
+    xaxis = list(title = "Month"),
+    yaxis = list(title = "Highest Temperature (°F)")
+  )
+```
+
+
+
+

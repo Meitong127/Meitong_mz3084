@@ -1,0 +1,37 @@
+---
+title: "Meitong Zhou"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    css: styles.css
+---
+### Overview
+
+Meitong Zhou holds a dual bachelor’s degree in economics from the University of Colorado, Denver, and China Agricultural University (CAU), achieving a GPA of 3.86 and receiving multiple academic scholarships. With solid skills in economic analysis, Zhou has completed impactful internships, including roles at Hejun Consulting and China Securities, where they produced reports, conducted financial analyses, and advised on investment strategies. Zhou researched SHAP values in genetic epidemiology under Professor Jun Liu from Oxford University, showcasing an interdisciplinary approach bridging biostatistics and economics. Academic projects include econometric modeling on dietary trends and risk assessment studies by age, utilizing software like Stata and SPSS. Zhou has published work on marketing strategies and economic methodologies, complemented by leadership roles in public relations and mental health support at CAU.
+
+
+![](meitong_photo.jpg)
+
+### Education Background
+
+BA, 2024 China Agricultural University
+
+MS, Columbia University (Present)
+
+### Honors & Awards
+Third-Class Scholarship for Academic Excellence of CAU (2022-2023)
+
+Second-Class Scholarship for Academic Excellence of International College at Beijing, CAU (2022-2023)
+
+Third-Class Scholarship for Academic Excellence of CAU (2021-2022)
+
+Second-Class Scholarship for Academic Excellence of International College at Beijing, CAU (2021-2022)
+
+Third Prize, CAU Physics Theory Competition (04/2021)
+
+
+
+
+
+If you'd like to learn more about me, visit [this page](about.html)
